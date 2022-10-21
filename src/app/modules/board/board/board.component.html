@@ -1,0 +1,29 @@
+<div class="flex flex-row w-full h-full">
+  <app-sidebar></app-sidebar>
+  <div class="flex flex-col w-full">
+    <div class="flex flex-row justify-between items-center h-20 w-full p-3 bg-white">
+      <div class="p-3 text-lg">Board 1</div>
+      <div (click)="openDialog()" class="bg-indigo-400 p-3 text-white cursor-pointer hover:bg-indigo-600 transition-all rounded-lg">Add Task</div>
+    </div>
+    <div class="flex flex-row" cdkDropListGroup>
+      <app-column
+        cdkDropList
+        #todoList="cdkDropList"
+        [cdkDropListData]="todo"
+        [cdkDropListConnectedTo]="[doneList]"
+        (cdkDropListDropped)="drop($event)"
+        title="TO DO"
+        [tasks]="todo">
+      </app-column>
+      <app-column
+        cdkDropList
+        #doneList="cdkDropList"
+        [cdkDropListData]="done"
+        [cdkDropListConnectedTo]="[todoList]"
+        (cdkDropListDropped)="drop($event)"
+        title="DONE"
+        [tasks]="done">
+      </app-column>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,11 @@
+<div class="flex flex-col gap-3 p-5 w-[300px]">
+  <div class="text-bold text-lg flex flex-row items-center gap-3">
+    <div class="w-[15px] h-[15px] bg-indigo-400 rounded-full"></div>
+    {{ title  }} ({{ tasks.length }})
+  </div>
+
+  <div class="flex flex-col gap-3">
+    <app-task *ngFor="let task of tasks" [task]="task" cdkDrag>{{task}} ></app-task>
+  </div>
+
+</div>
